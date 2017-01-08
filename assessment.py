@@ -80,6 +80,9 @@ def full_name(first_name, last_name):
 
     return first_name + " " + last_name
 
+full_name("Balloonicorn", "Jones")
+full_name("Hackbright", "Student")
+full_name("Happy", "Bootcamper")
 
 # def fancy_full_name(first_name, last_name):
 #     """Concatenates first name and last name and greets the user"""
@@ -110,6 +113,7 @@ def same_place(hometown, first_name, last_name):
 
 same_place("Andover", "Sammy", "Smith")
 same_place("Minneapolis", "Bob", "Jones")
+same_place("San Francisco", "Balloonicorn", "Jones")
 
 ###############################################################################
 
@@ -163,9 +167,6 @@ def append_to_list(lst, num):
     new_list.append(num)
 
     return new_list
-
-
-
 # 3. Write a function calculate_price to calculate an item's total cost by
 #    adding tax, and any fees required by state law.
 
@@ -182,7 +183,7 @@ def append_to_list(lst, num):
 #    Your function should return the total cost of the item, including tax and
 #    fees.
 
-def calculate_price(base_price, state_abbreviation, tax_percentage = .05):
+def calculate_price(base_price, state_abbreviation, tax_percentage=.05):
     """Calculates an items total cost by adding tax and additional fees required
     by state law.
     """
@@ -227,18 +228,27 @@ def calculate_price(base_price, state_abbreviation, tax_percentage = .05):
 # arguments, appends them to the list, and returns the entire list. Hint: this
 # isn't something we've discussed yet in class; you might need to google how to
 # write a Python function that takes in an arbitrary number of arguments.
+
+# def arbitrary_list(lst, *args):
+#     """Takes a list and an arbitrary amount of arguments and appends them to a list"""
+
+#     for arg in args:
+#         lst.append(arg)
+
+#     #print lst
+#     return lst
+
+# arbitrary_list([1, 2, 3, 4, 5], 6, 7, 8, 9)
+
 def arbitrary_list(lst, *args):
     """Takes a list and an arbitrary amount of arguments and appends them to a list"""
 
-    for arg in args:
-        lst.append(arg)
-
-    #print lst
+    lst.extend(arg for arg in args)
+    print lst
     return lst
 
 arbitrary_list([1, 2, 3, 4, 5], 6, 7, 8, 9)
-
-
+arbitrary_list(["dog", "cat", "mouse"], "unicorn", "whale", "dolphin")
 
 # 2. Make a new function with a nested inner function.
 # The outer function will take in a word.
@@ -251,6 +261,7 @@ arbitrary_list([1, 2, 3, 4, 5], 6, 7, 8, 9)
 
 #>>> outer("Balloonicorn")
 #('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
+
 def make_this_multiple(word):
     """Takes in a word as a string."""
 
