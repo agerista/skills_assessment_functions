@@ -101,13 +101,15 @@ def full_name(first_name, last_name):
 def same_place(hometown, first_name, last_name):
     """Checks to see if user is from my hometown"""
 
-    if is_hometown("city") is True:
-        print "Hi, {0}, we're from the same place!" .format(full_name)
+    city = hometown
+    if is_hometown(city):
+        print "Hi, {0}, we're from the same place!" .format(full_name(first_name, last_name))
 
-    elif is_hometown("city") is False:
-        print "Hi, {0}, where are you from?" .format(full_name)
+    else:
+        print "Hi, {0}, where are you from?" .format(full_name(first_name, last_name))
 
 same_place("Andover", "Sammy", "Smith")
+same_place("Minneapolis", "Bob", "Jones")
 
 ###############################################################################
 
@@ -231,7 +233,7 @@ def arbitrary_list(lst, *args):
     for arg in args:
         lst.append(arg)
 
-    print lst
+    #print lst
     return lst
 
 arbitrary_list([1, 2, 3, 4, 5], 6, 7, 8, 9)
